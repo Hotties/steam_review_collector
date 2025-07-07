@@ -13,6 +13,12 @@ setup(
         'python-dotenv',
         'transformers>=4.0.0',
         'torch>=1.10.0',
-        'steamreviews'
+        'steamreviews',
+        'emoji',
+        'soynlp',
+        'konlpy',
+        'matplotlib',
+        'seaborn',
+        ###'git+https://github.com/stopwords-iso/stopwords-ko.git'
     ],
 )

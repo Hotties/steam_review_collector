@@ -4,7 +4,7 @@ def create_sentiment_tables(conn):
             CREATE TABLE IF NOT EXISTS positive_reviews (
                 recommendationid BIGINT PRIMARY KEY,
                 steamid BIGINT,
-                positive_score FLOAT,
+                sentiment VARCHAR(20),
                 steam_purchase BOOLEAN
             );
         """)
@@ -12,7 +12,7 @@ def create_sentiment_tables(conn):
             CREATE TABLE IF NOT EXISTS negative_reviews (
                 recommendationid BIGINT PRIMARY KEY,
                 steamid BIGINT,
-                negative_score FLOAT,
+                sentiment VARCHAR(20),
                 steam_purchase BOOLEAN
             );
         """)

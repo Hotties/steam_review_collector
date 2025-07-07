@@ -1,15 +1,17 @@
-def insert_sentiment_review(conn, review, sentiment: str, score: float):
+def insert_sentiment_review(conn, review, sentiment: str):
     with conn.cursor() as cursor:
         if sentiment == 'positive':
+            print(f"{sentiment}Is Positive")
             cursor.execute("""
-                INSERT INTO positive_reviews (recommendationid, steamid, positive_score, steam_purchase)
+                INSERT INTO positive_reviews (recommendationid, steamid, sentiment, steam_purchase)
                 VALUES (%s, %s, %s, %s)
-                ON DUPLICATE KEY UPDATE positive_score = VALUES(positive_score)
-            """, (review.review_id, review.steamid, score, review.steam_purchase))
+                ON DUPLICATE KEY UPDATE sentiment = VALUES(sentiment)
+            """, (review.review_id, review.steamid,sentiment, review.steam_purchase))
         elif sentiment == 'negative':
+            print(f"{sentiment}Is Negative")
             cursor.execute("""
-                INSERT INTO negative_reviews (recommendationid, steamid, negative_score, steam_purchase)
+                INSERT INTO negative_reviews (recommendationid, steamid, sentiment, steam_purchase)
                 VALUES (%s, %s, %s, %s)
-                ON DUPLICATE KEY UPDATE negative_score = VALUES(negative_score)
-            """, (review.review_id, review.steamid, score, review.steam_purchase))
+                ON DUPLICATE KEY UPDATE sentiment = VALUES(sentiment)
+            """, (review.review_id, review.steamid, sentiment, review.steam_purchase))
     conn.commit()
