@@ -14,7 +14,6 @@ import time
 
 def main():
     
-    ##print(extract_nouns("점심으로 맛있는 짜장면과 탕수육을 먹었습니다. 배가 부르네요."))
     reviews = collect_reviews()
     if not reviews:
         print("[WARN] No reviews to process.")
@@ -27,6 +26,7 @@ def main():
     nouns = []
 
     for r in reviews:
+        print(r.review)
         c = classifier.predict(r.review)
         try:
             print(c)
@@ -34,7 +34,6 @@ def main():
                 nouns.append(extract_nouns(r.review)) 
         except Exception as e:
             print(f"[ERROR] Failed to insert review {r.review_id}: {e}")
-        """
         try:
             print(2)
             insert_review(conn, r)
@@ -45,11 +44,10 @@ def main():
             insert_sentiment_review(conn,r, c)
         except Exception as e:
             print()
-        """
-        time.sleep(5)
+    
     conn.close()
     
-    ##plot_top_n_nouns(nouns)
+    plot_top_n_nouns(nouns)
 
 
 if __name__ == "__main__":
