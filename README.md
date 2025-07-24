@@ -43,6 +43,9 @@ steam_review_collector/
 # 의존성 설치 (예: requirements.txt가 있다면)
 pip install -r requirements.txt
 
+# setup.py 실행
+python setup.py install
+
 # 프로젝트 실행
 python main.py
 ```
@@ -51,8 +54,8 @@ python main.py
 
 ## 📊 결과 예시
 
-- 리뷰 텍스트 기반 명사 워드클라우드
-- 긍/부정 리뷰 분포 차트
+- 리뷰의 감정 분석 결과 출력
+- 리뷰에서 단어 추출
 
 ---
 
@@ -69,3 +72,4 @@ python main.py
 ## 📁 향후 개선점
 
 - 문장에 따른 감정 분석 개선
+
