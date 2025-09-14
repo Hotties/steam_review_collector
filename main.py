@@ -35,16 +35,15 @@ def main():
         except Exception as e:
             print(f"[ERROR] Failed to insert review {r.review_id}: {e}")
         try:
-            print(2)
             insert_review(conn, r)
         except Exception as e:
             print()
         try:
-            print(3)
             insert_sentiment_review(conn,r, c)
         except Exception as e:
             print()
-    
+        print()
+        
     conn.close()
     
     plot_top_n_nouns(nouns)

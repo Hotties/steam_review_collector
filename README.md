@@ -20,10 +20,14 @@ steam_review_collector/
 │
 ├── main.py                         # 메인 실행 파일
 ├── data/                           # 수집된 리뷰 JSON 파일 저장
-├── db/                             # DB 연결 및 삽입 로직
-│   ├── db.py
-│   ├── insert.py
-│   └── schema.py
+├── collect/
+│   ├── collect_reviews.py          # .env파일의 steamAppId를 가져와 적용
+│   ├── insert.py                   # 해당 AppId의 리뷰를 json파일로 다운로드
+│   └── parser.py                   # 필요한 데이터만 파싱
+├── db/                             
+│   ├── db.py                       # DB 연결
+│   ├── insert.py                   # 테이블에 데이터 삽입
+│   └── schema.py                   # 실행할때 테이블 생성
 ├── model/                          # 리뷰 데이터 모델 정의
 │   └── review.py
 ├── noun_frequency/                # 명사 추출 및 시각화
